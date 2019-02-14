@@ -1,0 +1,37 @@
+package com.moons.webservice.domain.etls;
+
+import lombok.Getter;
+
+import javax.persistence.Embeddable;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import java.io.Serializable;
+import java.util.Objects;
+
+@Getter
+@Embeddable
+public class EtlsId implements Serializable {
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    private String etlId;
+
+    public EtlsId(String etlId){
+        this.etlId = etlId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if(!(o instanceof EtlsId)) return false;
+        EtlsId that = (EtlsId) o;
+        return Objects.equals(getEtlId(), that.getEtlId()) &&
+                Objects.equals(getId(), that.getId());
+    }
+
+    @Override
+    public int hashCode(){
+        return Objects.hash(getId(), getEtlId());
+    }
+}

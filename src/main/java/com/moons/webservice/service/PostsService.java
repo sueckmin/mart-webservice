@@ -1,7 +1,7 @@
 package com.moons.webservice.service;
 
 import com.moons.webservice.domain.posts.PostsRepository;
-import com.moons.webservice.dto.PostsMainResponseDto;
+import com.moons.webservice.dto.posts.PostsMainResponseDto;
 import com.moons.webservice.dto.posts.PostsSaveRequestDto;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

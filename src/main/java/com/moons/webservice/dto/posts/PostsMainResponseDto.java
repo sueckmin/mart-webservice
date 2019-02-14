@@ -1,4 +1,4 @@
-package com.moons.webservice.dto;
+package com.moons.webservice.dto.posts;
 
 import com.moons.webservice.domain.posts.Posts;
 import lombok.Getter;
