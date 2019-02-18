@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.stream.Stream;
 
-public interface EtlsRepository extends JpaRepository<Etls, Long> {
+public interface EtlsRepository extends JpaRepository<Etls, EtlsId> {
     @Query("SELECT p " +
             "FROM Etls p "+
             "ORDER BY p.id desc"

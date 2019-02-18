@@ -1,6 +1,9 @@
 package com.moons.webservice.domain.etls;
 
+import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Embeddable;
 import javax.persistence.GeneratedValue;
@@ -10,13 +13,14 @@ import java.util.Objects;
 
 @Getter
 @Embeddable
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class EtlsId implements Serializable {
-    @Id
+
     @GeneratedValue
     private Long id;
-
     private String etlId;
 
+    @Builder
     public EtlsId(String etlId){
         this.etlId = etlId;
     }
@@ -34,4 +38,5 @@ public class EtlsId implements Serializable {
     public int hashCode(){
         return Objects.hash(getId(), getEtlId());
     }
-}
+
+    }
