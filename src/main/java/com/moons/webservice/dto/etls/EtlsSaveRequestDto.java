@@ -13,7 +13,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class EtlsSaveRequestDto {
 
-    private EtlsId id;
+    private String etlId;
     private String etlTp;
     private String etlGrpId;
 
@@ -27,8 +27,8 @@ public class EtlsSaveRequestDto {
     private String tblId;
 
     @Builder
-    public EtlsSaveRequestDto(EtlsId id, String etlTp, String etlGrpId, String etlNM, String jobId, String preEtlId, String jobCycle, String cycleTime, String etlPk, String grpEtlId, String tblId){
-        this.id = id;
+    public EtlsSaveRequestDto(String etlId, String etlTp, String etlGrpId, String etlNM, String jobId, String preEtlId, String jobCycle, String cycleTime, String etlPk, String grpEtlId, String tblId){
+        this.etlId = etlId;
         this.etlTp = etlTp;
         this.etlGrpId = etlGrpId;
         this.etlNM = etlNM;
@@ -43,7 +43,7 @@ public class EtlsSaveRequestDto {
 
     public Etls toEntity(){
         return Etls.builder()
-                .id(id)
+                .id(new EtlsId(etlId))
                 .etlTp(etlTp)
                 .etlGrpId(etlGrpId)
                 .etlNM(etlNM)

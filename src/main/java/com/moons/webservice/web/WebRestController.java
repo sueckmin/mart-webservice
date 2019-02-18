@@ -2,8 +2,10 @@ package com.moons.webservice.web;
 
 import com.moons.webservice.domain.etls.EtlsRepository;
 import com.moons.webservice.domain.posts.PostsRepository;
+import com.moons.webservice.dto.Emps.EmpSaveRequestDto;
 import com.moons.webservice.dto.etls.EtlsSaveRequestDto;
 import com.moons.webservice.dto.posts.PostsSaveRequestDto;
+import com.moons.webservice.service.EmpService;
 import com.moons.webservice.service.EtlsService;
 import com.moons.webservice.service.PostsService;
 import lombok.AllArgsConstructor;
@@ -20,6 +22,7 @@ public class WebRestController {
     private PostsRepository postsRepository;
     private EtlsService etlsService;
     private EtlsRepository etlsRepository;
+    private EmpService empService;
 
     @GetMapping("/hello")
     public String hello(){
@@ -35,5 +38,8 @@ public class WebRestController {
     public Long saveEtls(@RequestBody EtlsSaveRequestDto dto){
         return etlsService.save(dto);
     }
+
+    @PostMapping("/emp")
+    public String saveEmp(@RequestBody EmpSaveRequestDto dto){ return empService.save(dto);}
 
 }
