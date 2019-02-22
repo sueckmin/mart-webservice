@@ -1,7 +1,7 @@
 package com.moons.webservice.dto.Emps;
 
-import com.moons.webservice.domain.Emps.Emp;
-import com.moons.webservice.domain.Emps.EmpId;
+import com.moons.webservice.domain.emps.Emp;
+import com.moons.webservice.domain.emps.EmpId;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

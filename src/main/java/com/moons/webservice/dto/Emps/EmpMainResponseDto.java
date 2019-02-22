@@ -1,6 +1,6 @@
 package com.moons.webservice.dto.Emps;
 
-import com.moons.webservice.domain.Emps.Emp;
+import com.moons.webservice.domain.emps.Emp;
 import lombok.Getter;
 
 @Getter
