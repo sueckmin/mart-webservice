@@ -10,40 +10,18 @@
 </head>
 <body>
 <nav class="nav">
-    <a class="nav-link active" href="#">Active</a>
-    <a class="nav-link" href="/test">Link</a>
+    <a class="nav-link" href="/">Active</a>
+    <a class="nav-link active" href="#">Link</a>
     <a class="nav-link" href="#">Link</a>
     <a class="nav-link disabled" href="#">Disabled</a>
 </nav>
 
-<h1>스프링부트로 시작하는 웹 서비스</h1>
+<h1>테스트 페이지</h1>
 <div class="col-md-12">
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#savePostsModal">글 등록</button>
     <br/>
     <br/>
 
-    <!-- 목록 출력 영역 -->
-    <table class="table table-horizontal table-bordered table-dark">
-        <thead class="thead-strong">
-        <tr>
-            <th>게시글번호</th>
-            <th>제목</th>
-            <th>작성자</th>
-            <th>최종수정일</th>
-        </tr>
-        </thead>
-        <tbody id="tbody">
-        {{#each posts}}
-            <tr>
-                <td>{{id}}</td>
-                <td>{{title}}</td>
-                <td>{{author}}</td>
-                <td>{{modifiedDate}}</td>
-            </tr>
-        {{/each}}
-        </tbody>
-    </table>
-</div>
 
 <!-- Modal 영역 -->
 <div class="modal fade" id="savePostsModal" tabindex="-1" role="dialog" aria-labelledby="savePostsLabel" aria-hidden="true">
@@ -58,17 +36,21 @@
             <div class="modal-body">
                 <form>
                     <div class="form-group">
-                        <label for="title">제목</label>
-                        <input type="text" class="form-control" id="title" placeholder="제목을 입력하세요">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                     </div>
                     <div class="form-group">
-                        <label for="author"> 작성자 </label>
-                        <input type="text" class="form-control" id="author" placeholder="작성자를 입력하세요">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                     </div>
-                    <div class="form-group">
-                        <label for="content"> 내용 </label>
-                        <textarea class="form-control" id="content" placeholder="내용을 입력하세요"></textarea>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="checkbox" class="form-check-input">
+                            Check me out
+                        </label>
                     </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
             <div class="modal-footer">

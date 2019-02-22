@@ -1,11 +1,8 @@
-package com.moons.webservice.domain.Emps;
+package com.moons.webservice.domain.emps;
 
 import lombok.*;
-import sun.rmi.runtime.Log;
 
 import javax.persistence.Embeddable;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import java.io.Serializable;
 import java.util.Objects;
 

@@ -1,4 +1,4 @@
-package com.moons.webservice.domain.Emps;
+package com.moons.webservice.domain.emps;
 
 import lombok.AccessLevel;
 import lombok.Builder;

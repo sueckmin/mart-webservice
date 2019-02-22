@@ -1,6 +1,6 @@
 package com.moons.webservice.service;
 
-import com.moons.webservice.domain.Emps.EmpRepository;
+import com.moons.webservice.domain.emps.EmpRepository;
 import com.moons.webservice.dto.Emps.EmpMainResponseDto;
 import com.moons.webservice.dto.Emps.EmpSaveRequestDto;
 import lombok.AllArgsConstructor;
