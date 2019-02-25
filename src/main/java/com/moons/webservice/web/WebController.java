@@ -18,9 +18,25 @@ public class WebController {
         return "/main";
     }
 
+    @GetMapping("/member")
+    public String member(){
+        return "/sign";
+    }
+
+    @GetMapping("/login")
+    public String login(){
+        return "sign";
+    }
+
     @GetMapping("/test")
-    public String test(Model model) {
-        model.addAttribute("posts", postsService.findAllDesc());
+    public String test() {
         return "/test/test";
     }
+
+    @GetMapping("/testpage")
+    public String testpage() {
+        return "/test/testpage";
+    }
+
+
 }
