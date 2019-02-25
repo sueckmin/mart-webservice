@@ -4,6 +4,10 @@ spring:
     url: jdbc:mysql://192.168.0.203:3306/test?useUnicode=yes&characterEncoding=UTF-8
     username: mtodm
     password: Mtodm1234!
+  security:
+    user:
+      name: default
+      password : 1234
 
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
