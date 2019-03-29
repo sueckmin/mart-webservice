@@ -8,6 +8,11 @@ spring:
     user:
       name: default
       password : 1234
+    oauth2:
+      client:
+        client-id: foo
+        client-secret: bar
+
 
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect

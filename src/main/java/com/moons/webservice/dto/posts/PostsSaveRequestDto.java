@@ -14,6 +14,7 @@ public class PostsSaveRequestDto {
     private String title;
     private String content;
     private String author;
+    static private Long views = 0L;
 
     @Builder
     public PostsSaveRequestDto(String title, String content, String author) {
@@ -27,6 +28,7 @@ public class PostsSaveRequestDto {
                 .title(title)
                 .content(content)
                 .author(author)
+                .views(views)
                 .build();
     }
 }

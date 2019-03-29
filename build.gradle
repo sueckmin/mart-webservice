@@ -35,4 +35,5 @@ dependencies {
     compile("mysql:mysql-connector-java:5.0.8")
     compileOnly('org.projectlombok:lombok')
     testCompile('org.springframework.boot:spring-boot-starter-test')
+    compile group: 'org.springframework.security.oauth', name: 'spring-security-oauth2', version: '2.3.4.RELEASE'
 }

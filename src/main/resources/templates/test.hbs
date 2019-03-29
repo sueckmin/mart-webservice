@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      data-layout-decorate="~{samples/layout/sampleLayout}"
+>
+
+<!-- 사용자 CSS 추가 -->
+<th:block layout:fragment="css">
+</th:block>
+
+<!-- 사용자 스크립트 추가 -->
+<th:block layout:fragment="script">
+    <script th:inline="javascript">
+/*<![CDATA[*/
+$(function () {
+
+	var formObj = $("form[role='form']");
+	console.log(formObj);
+
+	$(".btn-warning").on("click", function(){
+		formObj.attr("action", "/samplehome/board/modify");
+		formObj.attr("method", "get");
+		formObj.submit();
+	});
+
+	$(".btn-danger").on("click", function(){
+		formObj.attr("action", "/samplehome/board/remove");
+		formObj.submit();
+	});
+
+	$(".btn-primary").on("click", function(){
+		formObj.attr("action", "/samplehome/board/listAll");
+		formObj.attr("method", "get");
+		formObj.submit();
+	});
+
+  });
+
+/*]]>*/
+</script>
+</th:block>
+
+<div layout:fragment="content">
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                게시판 읽기
+                <small>Optional description</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> 게시판</a></li>
+                <li class="active">read</li>
+            </ol>
+        </section>
+
+        <!-- Main content -->
+        <section class="content container-fluid">
+
+            <!--------------------------
+              | Your Page Content Here |
+              -------------------------->
+
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">READ BOARD</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form role="form" method="post">
+                    <div class="box-body" th:object="${boardVO}">
+                        <input th:field="*{bno}" type="hidden"  >
+                        <div class="form-group">
+                            <label for="exampleInputBoardTitle">Title</label>
+                            <input th:value="*{title}" type="text" class="form-control" id="exampleInputBoardTitle"  readonly="readonly">
+                        </div>
+                        <div class="form-group">
+                            <label>Content</label>
+                            <textarea th:inline="text" class="form-control" rows="3" readonly="readonly">[[*{content}]]</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputBoardWriter">Writer</label>
+                            <input th:value="*{writer}" type="text"  class="form-control" id="exampleInputBoardWriter" readonly="readonly">
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+
+                    <div class="box-footer">
+                        <button type="submit" class="btn btn-warning">Modify</button>
+                        <button type="submit" class="btn btn-danger">Remove</button>
+                        <button type="submit" class="btn btn-primary">ListAll</button>
+                    </div>
+                </form>
+            </div>
+            <!-- /.box -->
+
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+</div>
+</html>

@@ -12,13 +12,15 @@
 <nav class="nav">
     <a class="nav-link active" href="/">Active</a>
     {{! <a class="nav-link" href="/test">Link</a>
-    // <a class="nav-link" href="/testpage">TestPage</a>
-    // <a class="nav-link disabled" href="#">Disabled</a> }}
+    <a class="nav-link" href="/testpage">TestPage</a>
+    <a class="nav-link disabled" href="#">Disabled</a> }}
 </nav>
 
 <h1>스프링부트로 시작하는 웹 서비스</h1>
 <div class="col-md-12">
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#savePostsModal">글 등록</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modifyPostsModal">글 수정</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deletePostsLabel">글 삭제</button>
     <br/>
     <br/>
 
@@ -26,29 +28,33 @@
     <table class="table table-horizontal table-bordered table-dark">
         <thead class="thead-strong">
         <tr>
-            <th>제목</th>
+            {{! <th>제목</th>
             <th>작성자</th>
+            <th>내용</th>
+            <th>최종수정일</th>
+            }}
+            {{#posts}}
+                <tr>
+                <th>제목</th>
+                <th>{{title}}</th>
+                </tr>
+                <tr>
+                    <th>저자</th>
+                <th>{{author}}</th>
+                </tr>
+                <tr>
+                    <th>내용</th>
+                <th>{{content}}</th>
+                </tr>
+                <tr>
+                    <th>수정일</th>
+                <th>{{modifiedDate}}</th>
+                </tr>
+            {{/posts}}
         </tr>
         </thead>
-        <tbody id="tbody">
-        {{#each titles}}
-            <tr>
-                <td><a href="/posts/{{id}}">{{title}}</a></td>
-                <td>{{author}}</td>
-            </tr>
-        {{/each}}
-        </tbody>
     </table>
 </div>
-
-{{currntPage}}/{{totalPage}}
-
-        <li class="previous">
-            <a href="?page={{#totalPage}}{{/totalPage}}">&larr; Newer Posts</a>
-        </li>
-        <li class="next">
-            <a href="?page=${currntPage+1}">Older Posts &rarr;</a>
-        </li>
 
 <!-- Modal 영역 -->
 <div class="modal fade" id="savePostsModal" tabindex="-1" role="dialog" aria-labelledby="savePostsLabel" aria-hidden="true">
@@ -84,6 +90,39 @@
     </div>
 </div>
 
+<!-- 수정 -->
+<div class="modal fade" id="modifyPostsModal" tabindex="-1" role="dialog" aria-labelledby="modifyPostsLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modifyPostsLabel">게시글 수정</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="id">id</label>
+                        <input type="number" class= "form-control", id="id" placeholder="{{#posts}}{{id}}{{/posts}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="title">제목</label>
+                        <input type="text" class="form-control" id="title" placeholder="{{#posts}}{{title}}{{/posts}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="content"> 내용 </label>
+                        <textarea class="form-control" id="content" placeholder="{{#posts}}{{content}}{{/posts}}"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                <button type="button" class="btn btn-primary" id="btn-update">등록</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!--부트스트랩 js, jquery 추가-->
 <script src="/js/lib/jquery.min.js"></script>
